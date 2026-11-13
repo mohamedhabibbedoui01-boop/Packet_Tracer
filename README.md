@@ -1,57 +1,73 @@
-# Cisco Packet Tracer — Networking Labs
+# Cisco Packet Tracer — Networking & Security Portfolio
 
-A practical workspace for documenting networking concepts and Cisco Packet Tracer exercises.
+A hands-on portfolio of Cisco Packet Tracer labs focused on routing, switching, network services, access control, and monitoring.
 
-**Status:** Workspace prepared. Add topology files, configurations, screenshots, and verified results as each lab is completed.
+**Current focus:** Build and document the ten labs below in a progressive order. A lab is marked **Completed** only after its Packet Tracer file, configuration, screenshots, and verification results have been added and checked.
 
-## Planned Labs
+## Project roadmap
 
-| Lab | Topics | Status |
-|---|---|---|
-| 01 — Basic LAN | End devices, switches, IPv4 addressing | Planned |
-| 02 — Router Configuration | Interfaces, gateways, routing basics | Planned |
-| 03 — VLANs | VLAN creation, access ports, trunking | Planned |
-| 04 — Inter-VLAN Routing | Router-on-a-stick or Layer 3 routing | Planned |
-| 05 — DHCP | Address pools, leases, default gateways | Planned |
-| 06 — Network Troubleshooting | Connectivity tests and fault isolation | Planned |
+| # | Project | Main skills | Status |
+|---|---|---|---|
+| 01 | [Secure Router Configuration](01-secure-router-configuration/README.md) | Device hardening, passwords, SSH | Planned |
+| 02 | [VLAN-Based Network](02-vlan-based-network/README.md) | VLANs, access ports, trunks | Planned |
+| 03 | [Inter-VLAN Routing](03-inter-vlan-routing/README.md) | Router-on-a-stick, 802.1Q | Planned |
+| 04 | [SSH and Device Access](04-ssh-and-device-access/README.md) | Local users, SSH, secure management | Planned |
+| 05 | [Port Security](05-port-security/README.md) | Switch port security, MAC limits | Planned |
+| 06 | [Static Routing](06-static-routing/README.md) | Routing tables, next hops, default routes | Planned |
+| 07 | [ACL Security](07-acl-security/README.md) | Standard and extended ACLs | Planned |
+| 08 | [DHCP and DNS](08-dhcp-and-dns/README.md) | Address allocation, name resolution | Planned |
+| 09 | [NAT](09-nat/README.md) | Static NAT, dynamic NAT, PAT | Planned |
+| 10 | [Network Monitoring](10-network-monitoring/README.md) | Syslog, SNMP concepts, show commands | Planned |
 
-## Suggested Structure
+## Repository structure
 
 ```text
 Packet_Tracer/
-├── labs/
-│   ├── 01-basic-lan/
-│   ├── 02-router-configuration/
-│   ├── 03-vlans/
-│   ├── 04-inter-vlan-routing/
-│   ├── 05-dhcp/
-│   └── 06-troubleshooting/
-├── diagrams/
-├── screenshots/
+├── 01-secure-router-configuration/
+├── 02-vlan-based-network/
+├── 03-inter-vlan-routing/
+├── 04-ssh-and-device-access/
+├── 05-port-security/
+├── 06-static-routing/
+├── 07-acl-security/
+├── 08-dhcp-and-dns/
+├── 09-nat/
+├── 10-network-monitoring/
+├── LAB1 RouterSecurityconfig(1).pkt
+├── LAB1 RouterSecurityconfig(1).bak
 └── README.md
 ```
 
-## Lab Documentation Template
+Each project folder contains a project brief and a checklist. As you complete a lab, add:
+- `project.pkt` — the working Packet Tracer simulation.
+- `configs/` — sanitized device configurations.
+- `screenshots/` — topology and test evidence.
+- `tests.md` — test cases, expected results, and actual results.
 
-For each lab, include:
+## Recommended workflow
 
-- **Objective:** What the topology is designed to demonstrate.
-- **Topology:** A screenshot or exported diagram.
-- **Addressing:** IP address, subnet mask, gateway, and VLAN table as applicable.
-- **Configuration:** Relevant commands with secrets removed.
-- **Verification:** Ping tests, show commands, and expected results.
-- **Troubleshooting:** Problems encountered and how they were resolved.
-- **Lessons learned:** A short summary of the networking concepts practised.
+1. Read the project brief and draw the topology.
+2. Plan the IP addressing and VLANs before configuring devices.
+3. Build the topology in Cisco Packet Tracer.
+4. Configure one feature at a time and save checkpoints.
+5. Verify connectivity and security behaviour with suitable tests.
+6. Save the `.pkt` file, sanitized configurations, screenshots, and test results.
+7. Update the project status here only when the evidence is present.
 
-## Requirements
+## Existing router-security files
+
+The repository currently includes [LAB1 RouterSecurityconfig(1).pkt](LAB1%20RouterSecurityconfig(1).pkt) and its `.bak` companion in the repository root. They are retained as existing artifacts; their topology and configuration have not yet been independently verified. Review them in Packet Tracer before treating Project 01 as completed or moving them into its folder.
+
+## Tools
 
 - Cisco Packet Tracer (record the version used for each lab).
-- Basic understanding of IPv4 addressing and subnetting.
+- Cisco IOS-style CLI commands supported by the selected simulated devices.
+- Markdown for documentation and Git for version control.
 
-## Safety
+## Safety and publication
 
-Use simulated topologies or networks you own or are authorized to administer. Do not publish real network credentials or sensitive infrastructure details.
+Use simulated networks or infrastructure you own or are authorized to administer. Never publish real credentials, private keys, sensitive IP plans, or confidential network diagrams. Use fictional credentials in demonstrations and redact secrets from configuration files.
 
 ---
 
-*Network, test, document, improve.*
+*Design. Configure. Test. Document. Improve.*
