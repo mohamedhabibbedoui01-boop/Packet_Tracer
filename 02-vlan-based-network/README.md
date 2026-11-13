@@ -1,59 +1,118 @@
-# VLAN-Based Network
+# Project 02 — VLAN-Based Network
 
-**Status:** Planned — this folder is a project brief, not evidence of a completed lab.
+## Overview
 
-## Objective
+This project focuses on designing and configuring a VLAN-based network using Cisco Packet Tracer. The network is divided into separate logical groups to improve organization, manage traffic, and provide basic network segmentation.
 
-Segment a small organization into separate logical Layer 2 networks.
+## Objectives
 
-## Proposed topology
+- Understand the purpose of VLANs in a switched network.
+- Create and name multiple VLANs.
+- Assign switch ports to the correct VLANs.
+- Configure end devices with appropriate IP addresses.
+- Verify communication between devices in the same VLAN.
+- Demonstrate isolation between different VLANs when inter-VLAN routing is not configured.
 
-One or two switches and at least three groups of end devices, such as Admin, IT, and Guest.
+## Tools & Technologies
 
-## Implementation checklist
+- Cisco Packet Tracer
+- Cisco IOS CLI
+- Cisco switches
+- Virtual LANs (VLANs)
+- IPv4 addressing
+- Ethernet switching
 
-- [ ] Draw and save the topology.
-- [ ] Plan and document the IP addressing scheme.
-- [ ] Build the topology in Cisco Packet Tracer.
-- [ ] Configure the required devices and features.
-- [ ] Save the working simulation as `project.pkt`.
-- [ ] Export sanitized configurations into `configs/`.
-- [ ] Capture the topology and verification results in `screenshots/`.
-- [ ] Record expected and actual results in `tests.md`.
-- [ ] Update the main portfolio README when the lab is verified.
+## Network Topology
 
-## Configuration tasks
+Add a screenshot of your Packet Tracer topology here.
 
-Create VLANs; assign access ports; label ports; connect switches; configure trunks when multiple switches carry the VLANs; verify that devices in the same VLAN communicate.
+Suggested scenario: a small organization with three departments connected to a switch:
 
-## Verification plan
+| Department | VLAN ID | Example network |
+|---|---:|---|
+| Administration | 10 | 192.168.10.0/24 |
+| IT | 20 | 192.168.20.0/24 |
+| Guest | 30 | 192.168.30.0/24 |
 
-show vlan brief; show interfaces trunk; ping between same-VLAN devices; confirm different VLANs are isolated before routing is configured.
+These are example private lab networks. Assign each PC an unused IP address in its department's subnet.
 
-## Suggested folder contents
+## Configuration
+
+The main configuration tasks include:
+
+1. Add and connect the switch and end devices.
+2. Configure the VLANs and give each VLAN a descriptive name.
+3. Assign the correct switch access ports to each VLAN.
+4. Configure the IP address and subnet mask on each PC.
+5. Check that each switch port belongs to the intended VLAN.
+6. Save the switch configuration.
+
+Example Cisco IOS commands:
 
 ```text
-02-vlan-based-network/
-├── README.md
-├── project.pkt
-├── configs/
-│   └── device-configs.txt
-├── screenshots/
-│   ├── topology.png
-│   └── verification.png
-└── tests.md
+enable
+configure terminal
+
+vlan 10
+ name ADMIN
+exit
+
+vlan 20
+ name IT
+exit
+
+vlan 30
+ name GUEST
+exit
+
+interface fastEthernet 0/1
+ switchport mode access
+ switchport access vlan 10
+exit
+
+end
+show vlan brief
 ```
 
-## Safety and documentation
+Repeat the access-port configuration for the ports and VLANs used in your topology. Adjust interface names to match your switch model.
 
-Use a fictional organization and private RFC1918 addressing.
+## Verification
 
-Record the Packet Tracer version and device models used. Include only configurations you have personally tested. Remove passwords, keys, and other secrets before publishing.
+Commands used for verification:
 
-## Learning notes
+```text
+show vlan brief
+show running-config
+show interfaces status
+```
 
-After completing the lab, add:
-- What you learned.
-- What failed and how you fixed it.
-- Any Packet Tracer limitations you encountered.
-- What you would improve in a second version.
+Connectivity tests:
+
+- Ping between PCs assigned to the same VLAN.
+- Confirm that PCs in different VLANs cannot communicate without a Layer 3 routing configuration.
+- Check that every PC is connected to the intended switch port.
+
+## Project Files
+
+- `project.pkt` — Packet Tracer simulation.
+- `configs/` — Switch configuration files.
+- `screenshots/` — Network topology and verification evidence.
+- `tests.md` — Connectivity test results and observations.
+
+## Learning Outcomes
+
+- Understanding Layer 2 network segmentation.
+- Creating and managing VLANs on a Cisco switch.
+- Assigning access ports to VLANs.
+- Understanding broadcast-domain separation.
+- Verifying VLAN membership and basic network connectivity.
+
+## Project Status
+
+**Status:** In Progress
+
+The topology and configuration will be added and tested in Cisco Packet Tracer. Screenshots and test results will be included as the project develops.
+
+---
+
+Created as part of my Cisco Networking and Cybersecurity learning journey.
