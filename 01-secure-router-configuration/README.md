@@ -1,59 +1,74 @@
-# Secure Router Configuration
+# Project 01 — Secure Router Configuration
 
-**Status:** Planned — this folder is a project brief, not evidence of a completed lab.
+## Overview
 
-## Objective
+This project focuses on configuring and securing a Cisco router using Cisco Packet Tracer.
 
-Harden a simulated Cisco router and establish a secure baseline for administrative access.
+## Objectives
 
-## Proposed topology
+- Configure basic router settings.
+- Set passwords for privileged EXEC access.
+- Configure console and VTY line access.
+- Encrypt plaintext passwords.
+- Configure SSH for secure remote administration.
+- Disable insecure Telnet access.
 
-One router and one management PC connected through a switch or directly, as supported by the selected Packet Tracer devices.
+## Tools & Technologies
 
-## Implementation checklist
+- Cisco Packet Tracer
+- Cisco IOS CLI
+- Router configuration
+- SSH
+- Network security fundamentals
 
-- [ ] Draw and save the topology.
-- [ ] Plan and document the IP addressing scheme.
-- [ ] Build the topology in Cisco Packet Tracer.
-- [ ] Configure the required devices and features.
-- [ ] Save the working simulation as `project.pkt`.
-- [ ] Export sanitized configurations into `configs/`.
-- [ ] Capture the topology and verification results in `screenshots/`.
-- [ ] Record expected and actual results in `tests.md`.
-- [ ] Update the main portfolio README when the lab is verified.
+## Network Topology
 
-## Configuration tasks
+Add a screenshot of your Packet Tracer topology here.
 
-Set a hostname; configure encrypted privileged access; create a local administrative user; configure console and VTY access; disable unused services where supported; save and review the configuration.
+## Configuration
 
-## Verification plan
+The main configuration tasks include:
 
-show running-config; show ip interface brief; show users; test permitted management access and confirm insecure access is not enabled.
+1. Set the router hostname.
+2. Configure the enable secret.
+3. Secure console access.
+4. Create a local administrative user.
+5. Configure an IP domain name.
+6. Generate RSA keys.
+7. Enable SSH version 2.
+8. Restrict remote access to SSH.
 
-## Suggested folder contents
+## Verification
 
-```text
-01-secure-router-configuration/
-├── README.md
-├── project.pkt
-├── configs/
-│   └── device-configs.txt
-├── screenshots/
-│   ├── topology.png
-│   └── verification.png
-└── tests.md
+Commands used for verification:
+```
+show running-config
+show ip interface brief
+show ip ssh
+show users
 ```
 
-## Safety and documentation
+Test SSH access from a connected PC.
 
-Never commit real passwords. Use fictional lab credentials and redact secrets in published configs.
+## Project Files
 
-Record the Packet Tracer version and device models used. Include only configurations you have personally tested. Remove passwords, keys, and other secrets before publishing.
+- `project.pkt` — Packet Tracer simulation.
+- `configs/` — Router configuration files.
+- `screenshots/` — Network topology and verification evidence.
 
-## Learning notes
+## Learning Outcomes
 
-After completing the lab, add:
-- What you learned.
-- What failed and how you fixed it.
-- Any Packet Tracer limitations you encountered.
-- What you would improve in a second version.
+- Understanding basic Cisco IOS configuration.
+- Applying secure router management practices.
+- Understanding SSH-based remote administration.
+- Verifying router security configurations.
+
+## Project Status
+
+**Status:** In Progress
+
+More configuration details and test results will be added as the project develops.
+
+---
+
+Created as part of my Cisco Networking and Cybersecurity learning journey.
